@@ -52,3 +52,8 @@ export const loginUserController = async (req, res) => {
         res.status(400).json({ error: err.message });
     }
 }
+
+export const profileUserController = async (req, res) => {
+    console.log(req.user);
+    res.status(200).json({ user: req.user });
+}
