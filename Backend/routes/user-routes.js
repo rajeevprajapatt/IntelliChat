@@ -19,4 +19,6 @@ router.post("/login",
 
 router.get("/profile", authMiddleware.authUser, userController.profileUserController); // Ensure this method is defined and imported
 
+router.get("/logout", authMiddleware.authUser, userController.logoutUserController); // Ensure this method is defined and imported
+
 export default router;
