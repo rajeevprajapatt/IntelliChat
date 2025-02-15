@@ -11,7 +11,7 @@ const Login = () => {
     function submitHandler(e) {
       e.preventDefault();
       axios
-        .post("/login", {
+        .post("/users/login", {
           email,
           password,
         })
