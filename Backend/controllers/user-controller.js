@@ -16,6 +16,8 @@ export const createUserController = async (req, res) => {
         const user = await userServices.createUser(req.body);
         const token = await user.generateJWT();
 
+        delete user._doc.password;
+
         res.status(201).json({ user, token });
     }
     catch (error) {
@@ -43,6 +45,7 @@ export const loginUserController = async (req, res) => {
         if (!isMatch) {
             return res.status(400).json({ error: "Invalid credentials" });
         }
+        delete user._doc.password;
 
         const token = await user.generateJWT();
 
